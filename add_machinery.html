@@ -1,0 +1,58 @@
+{% include 'mphead.html' %}
+<style>
+body {
+  background-image: url("https://kj1bcdn.b-cdn.net/media/10153/automatic-in-row-weeder-kj.jpg?format=webp&width=1280");
+  background-size: cover;
+  height:200px;
+}
+</style>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="card mt-5 p-3">
+                <form action="add_machinery1" method="post" enctype="multipart/form-data">
+                    <div class="text-center h3">Add Machinery</div>
+                    <div class="row">
+                        <div class="col-md-6 mt-2">
+                            <label for="machinery_name" class="form-control-label"> Machinery Name</label>
+                            <input type="text" name="machinery_name" id="machinery_name" placeholder="Enter Machinery Name" required class="form-control">
+                        </div>
+                        <div class="col-md-6 mt-2">
+                            <label for="insurance" class="form-control-label">Insurance</label>
+                            <input type="file" name="insurance" id="insurance" required class="form-control">
+                        </div>
+                        <div class="col-md-6 mt-2">
+                            <label for="driver_per_hour" class="form-control-label">Driver per Hour</label>
+                            <input type="number" name="driver_per_hour" id="driver_per_hour" placeholder="Price of Driver per Hour" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 mt-2">
+                            <label for="driver_per_day" class="form-control-label">Driver per Day</label>
+                            <input type="number" name="driver_per_day" id="driver_per_day" placeholder="Price of Driver per Day" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 mt-2">
+                            <label for="machinery_per_hour" class="form-control-label">Machinery per Hour</label>
+                            <input type="number" name="machinery_per_hour" id="machinery_per_hour" placeholder="Price of Machinery per Hour" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 mt-2">
+                            <label for="machinery_per_day" class="form-control-label">Machinery per Day</label>
+                            <input type="number" name="machinery_per_day" id="machinery_per_day" placeholder="Price of Machinery per Day" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 mt-2">
+                            <label for="about_machinery" class="form-control-label">About Machinery</label>
+                            <textarea name="about_machinery" id="about_machinery" placeholder="Write About Machinery" class="form-control" required></textarea>
+                        </div>
+                        <div class="col-md-6 mt-2">
+                            <label for="image" class="form-control-label">Image of Machinery</label>
+                            <input type="file" name="image" id="image" required class="form-control">
+                        </div>
+                        <div class="mt-2">
+                            <input type="submit" value="Add Machinery" class="btn btn-primary w-100">
+                        </div>
+                    </div>
+              </form>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>

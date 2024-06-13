@@ -1,0 +1,128 @@
+{% include 'mphead.html' %}
+<style>
+body {
+  background-image: url("https://michigangrown.org/wp-content/uploads/2022/09/soybeans-1.jpg");
+  background-size: cover;
+  height:200px;
+}
+</style>
+<div class="container">
+  <div class="row">
+    {% for booking in bookings: %}
+      {% set farmer=get_farmer_by_id(booking['farmer_id']) %}
+            {% set machinery=get_machinery_by_machinery_id(booking['machinery_id']) %}
+                        {% set machinery_provider=get_machinery_provider_by_id(machinery['machinery_provider_id']) %}
+        <div class="col-md-4">
+          <div class="card mt-5 p-3">
+            <div class="row">
+              <div class="mt-2 col-md-6">
+                <div style="font-size:70%">Booking Type</div>
+                <div>{{booking['Booking_type'].replace('_',' ')}}</div>
+              </div>
+              <div class="mt-2 col-md-6">
+                <div style="font-size:70%">Number Of Days</div>
+                <div>{{booking['days']}}</div>
+              </div>
+              <div class="mt-2 col-md-6">
+                <div style="font-size:70%">From Date</div>
+                <div>{{booking['from_date']}}</div>
+              </div>
+              <div class="mt-2 col-md-6">
+                <div style="font-size:70%">To Date</div>
+                <div>{{booking['to_date']}}</div>
+              </div>
+              <div class="mt-2 col-md-6">
+                <div style="font-size:70%">Total Amount</div>
+                <div>{{booking['total_amount']}}</div>
+              </div>
+              <div class=" mt-2 col-md-6">
+                <div style="font-size:70%">Farmer Name</div>
+                <div>{{farmer['name']}}</div>
+              </div>
+              <div class="mt-2 col-md-6">
+                <div style="font-size:70%">Farmer Phone</div>
+                <div>{{farmer['phone']}}</div>
+              </div>
+              <div class="mt-2 col-md-6">
+                <div style="font-size:70%">Machinery Name</div>
+                <div>{{machinery['machinery_name']}}</div>
+              </div>
+              <div class="mt-2 col-md-6">
+                <div style="font-size:70%">Machinery Provider Name</div>
+                <div>{{machinery_provider['name']}}</div>
+              </div>
+              <div class="mt-2 col-md-6">
+                <div style="font-size:70%"> Phone</div>
+                <div>{{machinery_provider['phone']}}</div>
+              </div>
+              <div class="mt-2 col-md-6">
+                <div style="font-size:70%">Booking Date</div>
+                <div>{{booking['booking_date'].strftime("%x")}}</div>
+              </div>
+              <div class="mt-2 col-md-6">
+                <div style="font-size:70%">Booking Status</div>
+                <div>{{booking['status']}}</div>
+              </div>
+                {% if booking['is_driver_required'] =='yes'%}
+                    {% set driver =get_driver_id(machinery_provider['_id'])%}
+                  <div class="mt-2 col-md-6">
+                    <div style="font-size:70%">Driver Name</div>
+                    <div>{{driver['name']}}</div>
+                  </div>
+                  <div class="mt-2 col-md-6">
+                    <div style="font-size:70%">Experience</div>
+                    <div>{{driver['experience']}}&nbsp;Years</div>
+                  </div>
+               {% endif %}
+              <hr>
+                <div>
+                 <div class="row">
+                         {% if booking['status']=='Requested' %}
+                         <div class="col-md-6">
+                             <form action="set_status">
+                                 <input type="hidden" name="booking_id" value="{{booking['_id']}}">
+                                 <input type="hidden" name="status" value="Booking_Rejected">
+                                 <input type="submit" value="Reject Booking" class="btn btn-danger w-100">
+                             </form>
+                         </div>
+                         {% endif %}
+                         {% if booking['status']=='Requested' %}
+                            {% if booking['is_driver_required']=='no' %}
+                         <div class="col-md-6">
+                             <form action="set_status">
+                                 <input type="hidden" name="booking_id" value="{{booking['_id']}}">
+                                 <input type="hidden" name="status" value="Booking_Approved">
+                                 <input type="submit" value="Approve Booking" class="btn btn-Success w-100">
+                             </form>
+                         </div>
+                         {% endif %}
+                         {% endif %}
+                     </div>
+               </div>
+                <div class="row">
+                    {% if booking['status']=='Booking_Approved' %}
+                   <div class="col-md-6">
+                       <form action="set_status">
+                           <input type="hidden" name="booking_id" value="{{booking['_id']}}">
+                           <input type="hidden" name="status" value="Service_Provided">
+                           <input type="submit" value="Service Provided" class="btn btn-info text-white w-100">
+                       </form>
+                   </div>
+                    {% endif %}
+                    {% if booking['is_driver_required']=='yes' %}
+                     {% if booking['status']=='Requested' %}
+                    <div class="col-md-6">
+                        <form action="set_status2">
+                           <input type="hidden" name="booking_id" value="{{booking['_id']}}">
+                           <input type="submit" value="Assign Driver" class="btn btn-warning text-white w-100">
+                        </form>
+                    </div>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+      </div>
+    </div>
+    {% endfor  %}
+  </div>
+</div>

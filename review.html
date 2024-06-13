@@ -1,0 +1,33 @@
+{% include 'fhead.html' %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="card mt-5 p-3">
+                <form action="review1" method="post">
+                    <input type="hidden" name="booking_id" value="{{booking_id}}">
+                    <div>
+                        <label for="rating" class="form-control-label"> Rating</label>
+                        <select name="rating" id="rating" required class="form-control" >
+                            <option value="">Provide Rating</option>
+                            <option value="1">*</option>
+                            <option value="2">**</option>
+                            <option value="3">***</option>
+                            <option value="4">****</option>
+                            <option value="5">*****</option>
+                        </select>
+                        <div class="mt-2">
+                            <label for="review" class="form-control-label">Review</label>
+                            <textarea name="review" id="review" class="form-control" placeholder="@Write Review"></textarea>
+                        </div>
+                        <div class="mt-2">
+                            <input type="submit" value="Submit" class="btn btn-primary w-100">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>

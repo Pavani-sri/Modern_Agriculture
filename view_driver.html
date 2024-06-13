@@ -1,0 +1,32 @@
+{% include 'mphead.html' %}
+<style>
+body {
+  background-image: url("https://www.gannett-cdn.com/-mm-/123a9632d20f8337c599f6e9f28314a1e275e3e3/c=3-0-1362-768/local/-/media/2017/12/21/USATODAY/USATODAY/636494425169944616-9.-Soybean-farming.jpg?width=660&height=373&fit=crop&format=pjpg&auto=webp");
+  background-size: cover;
+  height:200px;
+}
+</style>
+<div class="container">
+  <div class="row">
+    {% for driver in drivers %}
+    <div class="col-md-3">
+      <div class="card mt-5 p-3">
+        <div style="font-size:70%" class="mt-2">Driver Name</div>
+        <div>{{driver['name']}}</div>
+        <div style="font-size:70%" class="mt-2">Age</div>
+        <div>{{driver['age']}}</div>
+        <div style="font-size:70%" class="mt-2">Experience</div>
+        <div>{{driver['experience']}}</div>
+        <div class="row">
+          <div class="col-md-6 mt-2">
+            <div><a href="../static/files/{{driver['licence']}}" class="btn btn-info">View Licence</a></div>
+          </div>
+          <div class="col-md-6 mt-2">
+            <div><a href="../static/files/{{driver['insurance']}}" class="btn btn-info"> Insurance</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>

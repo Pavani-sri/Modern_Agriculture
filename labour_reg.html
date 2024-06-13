@@ -1,0 +1,54 @@
+{% include 'mhead.html' %}
+<style>
+body {
+  background-image: url("https://allianceforscience.cornell.edu/wp-content/uploads/oldsite/Basil%20-%20Keating%20Blog%20Photo.jpg");
+  background-size: cover;
+  height:200px;
+}
+</style>
+<div>
+  <div class="row">
+    <div class="col-md-5"></div>
+    <div class="col-md-6">
+      <div class="card mt-5 p-3">
+        <div class="text-center h5">Labour Provider Registration</div>
+        <form action="labour_reg1" method="post" enctype="multipart/form-data">
+          <div class="row">
+              <div class=" col-md-6 mt-2">
+                <label for="name" class="form-label"> Enter Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter Your Name" class="form-control" required>
+              </div>
+              <div class=" col-md-6 mt-2">
+                <label for="email" class="form-label">Enter Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter Your Email" class="form-control" required>
+              </div>
+              <div class=" col-md-6 mt-2">
+                <label for="phone" class="form-label">Enter Phone</label>
+                <input type="number" id="phone" name="phone" placeholder="Enter Your Phone" class="form-control" required>
+              </div>
+              <div class="col-md-6 mt-2">
+                <label for="password" class="form-label">Enter Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter Your Password" class="form-control" required>
+              </div>
+              <div class="col-md-6 mt-2">
+                <label for="id_proof" class="form-label"> id_proof</label>
+                <input type="file" id="id_proof" name="id_proof" placeholder="Choose File" class="form-control" required>
+              </div>
+              <div class="col-md-6 mt-2">
+                <label for="licence" class="form-label">Licence</label>
+                <input type="file" id="licence" name="licence" placeholder="Choose File" class="form-control" required>
+              </div >
+              <div class="col-md-6 mt-3">
+                <label for="price" class="form-label">Price per Labour</label>
+                <input type="number" id="price" name="price" placeholder="Enter Price" class="form-control" required>
+              </div >
+              <div class="col-md-6 mt-5">
+                <input type="submit" value="register" class="btn btn w-100" style="background-color:#00b33c">
+              </div>
+         </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>

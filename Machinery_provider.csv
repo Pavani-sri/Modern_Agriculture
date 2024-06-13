@@ -1,0 +1,4 @@
+_id,email,id_proof,name,password,phone,status
+638ea4acceb4c271313126b1,pavani@gmail.com,l.jpeg,Pavani,pavani,9132568765,activate
+638ea4ccceb4c271313126b2,gayatri@gmail.com,l2.jpeg,gayatri,gayatri,9134569876,activate
+638ea4f1ceb4c271313126b3,rohit@gmail.com,l3.jpeg,rohit,rohit,9132454587,activate

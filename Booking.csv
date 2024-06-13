@@ -1,0 +1,8 @@
+Booking_type,Price,_id,booking_date,days,driver_id,farmer_id,female_count,from_date,is_driver_required,labour_provider_id,machinery_id,male_count,status,to_date,total_amount,total_driver_amount,total_machine_amount
+Only Labour,1872,638ea704ceb4c271313126b8,2022-12-05T20:20:52.383Z,16,,638ea60eceb4c271313126b7,8,2022-12-07 00:00:00,,638ea59fceb4c271313126b6,,5,Service_Provided,2022-12-22 00:00:00,,,
+only_machinery,,638eaaeeceb4c271313126bd,2022-12-05T20:37:34.543Z,10,,638ea60eceb4c271313126b7,,2022-12-19 20:38:00,no,,638ea8b4ceb4c271313126ba,,Service_Provided,2022-12-29 22:37:00,1010.0,0,1010.0
+machinery_with_driver,,638f5dcb0a531453ace3f0fb,2022-12-06T09:20:43.491Z,3,638f5ecc0a531453ace3f0fc,638f5c6b0a531453ace3f0fa,,2022-12-07 09:20:00,yes,,638ea9a3ceb4c271313126bc,,Service_Provided,2022-12-10 10:20:00,620.0,310.0,310.0
+Only Labour,480,638f609a0a531453ace3f0fd,2022-12-06T09:32:42.713Z,8,,638f5c6b0a531453ace3f0fa,4,2022-12-15 00:00:00,,638ea53fceb4c271313126b4,,2,Service_Provided,2022-12-22 00:00:00,,,
+machinery_with_driver,,638f83b80a531453ace3f0ff,2022-12-06T12:02:32.487Z,6,,638f5c6b0a531453ace3f0fa,,2022-12-08 12:02:00,yes,,638ea9a3ceb4c271313126bc,,Requested,2022-12-14 12:02:00,1200.0,600.0,600.0
+machinery_with_driver,,638f87dd896cebea9d8a26e8,2022-12-06T12:20:13.776Z,8,,638f5c6b0a531453ace3f0fa,,2022-12-21 13:19:00,yes,,638ea8b4ceb4c271313126ba,,Requested,2022-12-29 13:19:00,1600.0,800.0,800.0
+machinery_with_driver,,638f8864896cebea9d8a26e9,2022-12-06T12:22:28.721Z,10,,638f5c6b0a531453ace3f0fa,,2022-12-21 12:22:00,yes,,638ea8b4ceb4c271313126ba,,Requested,2022-12-31 12:22:00,2000.0,1000.0,1000.0

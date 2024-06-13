@@ -1,0 +1,41 @@
+{% include 'ahead.html' %}
+<style>
+body {
+  background-image: url("https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-size: cover;
+  height:200px;
+}
+</style>
+<div class="container">
+  <div>
+    <br><br><br><br>
+    <table class="table table-hover mt-5  table-info">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>id_proof</th>
+        <th>Status</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for machinery_provider in machinery_providers: %}
+        <tr>
+          <td>{{machinery_provider['name']}}</td>
+          <td>{{machinery_provider['email']}}</td>
+          <td>{{machinery_provider['phone']}}</td>
+          <td><a href="../static/files/{{machinery_provider['id_proof']}}" class="btn btn-primary">View Licence</a></td>
+          <td>
+            {% if machinery_provider['status']== 'Deactivate': %}
+              <a href="set_activate?machinery_provider_id={{machinery_provider['_id']}}" class="btn btn-success w-100">Activate</a>
+            {% else: %}
+            <a href="set_deactivate?machinery_provider_id={{machinery_provider['_id']}}" class="btn btn-danger w-100">Deactivate</a>
+            {% endif %}
+            </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>

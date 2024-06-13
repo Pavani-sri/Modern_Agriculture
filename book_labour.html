@@ -1,0 +1,33 @@
+{% include 'fhead.html' %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="card mt-5 p-3">
+                <form action="book_labour1">
+                    <input type="hidden" name="labour_provider_id" value="{{labour_provider_id}}">
+                    <div class=" mt-2">
+                        <label for="from_date" class="form-control-label">From Date</label>
+                        <input type="date" name="from_date" id="from_date"  required class="form-control">
+                    </div>
+                    <div class=" mt-2">
+                        <label for="to_date" class="form-control-label">To Date</label>
+                        <input type="date" name="to_date" id="to_date"  required class="form-control">
+                    </div>
+                    <div class=" mt-2">
+                        <label for="male_count" class="male_count">Enter Male Count</label>
+                        <input type="number" name="male_count" id="male_count" placeholder="Enter Male Count" required class="form-control">
+                    </div>
+                    <div class=" mt-2">
+                        <label for="female_count" class="male_count">Enter Female Count</label>
+                        <input type="number" name="female_count" id="female_count" placeholder="Enter Female Count" required class="form-control">
+                    </div>
+                    <div class="mt-2">
+                        <input type="submit" value="Send Request" class="btn btn-warning w-100">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+{% include 'mphead.html' %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="card mt-5 p-3">
+        <form action="set_status3">
+          <input type="hidden" name="booking_id" value="{{booking_id}}">
+
+            <div>
+              <label for="driver_id" class="form-control-label">Choose Driver</label>
+              <select name="driver_id" id="driver_id" required class="form-control">
+                <option value="">Choose Driver</option>
+                 {% for driver in drivers: %}
+                <option value="{{driver['_id']}}">{{driver['name']}}</option>
+                  {%  endfor %}
+              </select>
+            </div>
+          <div class="mt-2">
+            <input type="submit" value="Approve Booking" class="btn btn-success w-100">
+          </div>
+
+        </form>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>

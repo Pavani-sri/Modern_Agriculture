@@ -1,0 +1,44 @@
+{% include 'mphead.html' %}
+<style>
+body {
+  background-image: url("https://sg-res.9appsdownloading.com/sg/res/jpg/5c/12/c3199433f7b06b14960328f33235-gir1.jpg?x-oss-process=style/hq");
+  background-size: cover;
+  height:200px;
+}
+</style>
+<div>
+  <div class="row container">
+    <div class="col-md-8"></div>
+    <div class="col-md-4">
+      <div class="card mt-5 p-3">
+        <div class="text-center h4">Add Driver</div>
+        <form action="add_driver1" method="post" enctype="multipart/form-data">
+          <div class="mt-4">
+            <label for="name" class="form-label"> Enter Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter Name" class="form-control" required>
+          </div>
+          <div class="mt-2">
+            <label for="age" class="form-label">Enter Age</label>
+            <input type="number" id="age" name="age" placeholder="Enter Age" class="form-control" required>
+          </div>
+          <div class="mt-2">
+            <label for="experience" class="form-label">Enter experience</label>
+            <input type="number" id="experience" name="experience" placeholder="Enter Experience" class="form-control" required>
+          </div>
+          <div class="mt-2">
+            <label for="licence" class="form-label">Driving Licence</label>
+            <input type="file" id="licence" name="licence"  class="form-control" required>
+          </div>
+          <div class="mt-2">
+            <label for="insurance" class="form-label">Insurance</label>
+            <input type="file" id="insurance" name="insurance"  class="form-control" required>
+          </div>
+          <div class="mt-3">
+            <input type="submit" value="Add Driver"  class="btn btn-primary w-100">
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+{% if session['role']=='labour_provider': %}
+  {% include 'lhead.html' %}
+{% elif session['role']=='farmer': %}
+  {% include 'fhead.html' %}
+{% endif %}
+<div class="container">
+    <div class="row">
+        {%  for review in reviews: %}
+            {% set booking = get_booking_by_id(review['booking_id']) %}
+                {% set farmer = get_farmer_id(booking['farmer_id']) %}
+        <div class="col-md-12">
+            <div class="card mt-5 p-3">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div>{{farmer['name']}}</div>
+                        <div style="font-size:70%">{{review['date'].strftime('%c')}}</div>
+                    </div>
+                    <div class="col-md-3">
+                        <div>Rating: {{review['rating']}}</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div style="font-size:70%">Review</div>
+                        <div>{{review['review']}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

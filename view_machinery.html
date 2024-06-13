@@ -1,0 +1,76 @@
+{% if session['role']=='farmer': %}
+  {% include 'fhead.html' %}
+{% elif session['role']=='machinery_provider': %}
+    {% include 'mphead.html' %}
+{% endif %}
+<style>
+body {
+  background-image: url("https://kj1bcdn.b-cdn.net/media/10153/automatic-in-row-weeder-kj.jpg?format=webp&width=1280");
+  background-size: cover;
+  height:200px;
+}
+</style>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <form action="view_machinery">
+          <div class="row">
+              {% if session['role']=='farmer': %}
+              <div class="col-md-4 mt-1">
+                  <div class="mt-2 text-white">
+                      <label for="machinery_provider_id">Choose Machinery Provider</label>
+                      <select name="machinery_provider_id" id="machinery_provider_id"  class="form-control" >
+                        <option value="">Choose Machinery Provider</option>
+                        {% for machinery_provider in machinery_providers %}
+                        <option value="{{machinery_provider['_id']}}"  {% if machinery_provider_id== str(machinery_provider['_id'])%} selected {% endif %} >{{machinery_provider['name']}}</option>
+                        {% endfor %}
+                      </select>
+                  </div>
+              </div>
+              {% endif %}
+              <div class="col-md-4 mt-1">
+                <div class="mt-2 text-white">
+                    <label for="machinery_name" class="form-control-label">Search Machinery</label>
+                    <input type="text" name="machinery_name" id="machinery_name"  value="{{machinery_name}}" class="form-control" placeholder="Search for Machinery" >
+                </div>
+              </div>
+            <div class="col-md-4 mt-4">
+                <input type="submit" value="submit" class="btn btn-primary mt-2 w-100">
+            </div>
+          </div>
+        </form>
+      </div>
+    <div class="col-md-2"></div>
+  </div>
+  <div class="row">
+    {% for machinery in machineries %}
+    <div class="col-md-4">
+      <div class="card mt-5 p-3">
+          {% set rating=get_machinery_reviews(machinery['_id']) %}
+          <div class="text-end">
+                <a href="view_machinery_review?machinery_id={{machinery['_id']}}">{{rating}}</a>
+              </div>
+        <div ><img src="../static/files/{{machinery['image']}}" style="height: 50px; max-width: 100%;"></div>
+        <div style="font-size:70%" class="mt-2">Machinery Name</div>
+        <div>{{machinery['machinery_name']}}</div>
+        <div style="font-size:70%" class="mt-2">Machinery Per Hour</div>
+        <div>{{machinery['machinery_per_hour']}}</div>
+        <div style="font-size:70%" class="mt-2">Machinery Per Day</div>
+        <div>{{machinery['machinery_per_day']}}</div>
+        <div style="font-size:70%" class="mt-2">About Machinery</div>
+        <div style="height:50px; overflow:auto;">{{machinery['about_machinery']}}</div>
+        <div><a href="../static/files/{{machinery['insurance']}}" class="btn btn-info">View Insurance</a></div>
+        <hr>
+          {% if session['role'] =='farmer' %}
+          <div>
+              <a href="Book_machinery?machinery_id={{machinery['_id']}}" class="btn btn-warning">Book Machinery</a>
+          </div>
+          {% endif %}
+        <div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>

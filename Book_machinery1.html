@@ -1,0 +1,51 @@
+{% include 'fhead.html' %}
+<div class="container">
+  <div class="row">
+      <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="card mt-5 p-3">
+       <form action="confirm_booking">
+         <input type="hidden" name="machinery_id" value="{{machinery_id}}">
+         <input type="hidden" name="driver_per_hour" value="{{driver_per_hour}}">
+         <input type="hidden" name="machinery_per_hour" value="{{machinery_per_hour}}">
+         <input type="hidden" name="from_date" value="{{from_date}}">
+         <input type="hidden" name="to_date" value="{{to_date}}">
+         <input type="hidden" name="is_driver_required" value="{{is_driver_required}}">
+         <input type="hidden" name="days" value="{{days}}">
+         <input type="hidden" name="total_machine_amount" value="{{total_machine_amount}}">
+         <input type="hidden" name="total_driver_amount" value="{{total_driver_amount}}">
+         <input type="hidden" name="Booking_type" value="{{Booking_type}}">
+         <input type="hidden" name="total_amount" value="{{total_amount}}">
+         <div style="font-size:70%">From</div>
+         <div>{{from_date.strftime("%c")}}</div>
+         <div style="font-size:70%" class="mt-2">To</div>
+         <div>{{to_date.strftime("%c")}}</div>
+         <div style="font-size:70%" class="mt-2">Duration</div>
+         <div>
+           {% if days != 0: %}
+              {{days}} Days
+           {% endif %}
+           {% if hours_diff != 0: %}
+              {{hours_diff}} Hours
+           {% endif %}
+         </div>
+         <div style="font-size:70%" class="mt-2">Driver Requirement</div>
+         <div>{{is_driver_required}}</div>
+         {% if total_driver_amount>0 %}
+         <div style="font-size:70%" class="mt-2">Driver Amount</div>
+         <div>${{total_driver_amount}}</div>
+         {% endif %}
+         <div style="font-size:70%" class="mt-2">Machinery Amount</div>
+         <div>${{total_machine_amount}}</div>
+         <div style="font-size:70%" class="mt-2">Total Amount</div>
+         <div>${{total_amount}}</div>
+         <div class="mt-2">
+           <input type="submit" value="Confirm Booking" class="btn btn-info w-100">
+         </div>
+       </form>
+      </div>
+    </div>
+      <div class="col-md-4"></div>
+    </div>
+  </div>
+</div>

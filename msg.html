@@ -1,0 +1,18 @@
+{% if session['role']=='machinery_provider': %}
+    {% include 'mphead.html' %}
+{% elif  session['role']=='labour_provider': %}
+    {% include 'lhead.html' %}
+{% elif  session['role']=='farmer': %}
+    {% include 'fhead.html' %}
+{% else %}
+    {% include 'mhead.html' %}
+{% endif %}
+<style>
+body {
+  background-image: url("https://www.slcagricola.com.br/en/wp-content/uploads/2015/12/1_Piratini-e1653324404833.jpg");
+  background-size: cover;
+  height:200px;
+}
+</style>
+
+<div class=" mt-5 text-center text-white container {{color}} h1 ">{{msg}}</div>

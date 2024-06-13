@@ -1,0 +1,51 @@
+{% if session['role']=='labour_provider': %}
+  {% include 'lhead.html' %}
+{% elif session['role']=='farmer': %}
+  {% include 'fhead.html' %}
+{% endif %}
+<style>
+body {
+  background-image: url("https://api.time.com/wp-content/uploads/2021/05/farmworkers-covid-19-mental-health.jpg?quality=85&w=2400");
+  background-size: cover;
+  height:200px;
+}
+</style>
+<div class="container">
+  <div class="row">
+    {%  for labour_provider in labour_providers: %}
+    <div class="col-md-4">
+      <div class="card mt-5 p-3">
+          {% set rating=get_labour_provider_reviews(labour_provider['_id']) %}
+            <div class="row">
+              <div class="text-end">
+                <a href="viewReviewLabor?labour_provider_id={{labour_provider['_id']}}">{{rating}}</a>
+              </div>
+            </div>
+        <div class="col-md-10">
+                <div style="font-size:70%" class="mt-2">Labour Provider Name</div>
+                <div>{{labour_provider['name']}}</div>
+              </div>
+        <div style="font-size:70%" class="mt-2">Email</div>
+        <div>{{labour_provider['email']}}</div>
+        <div style="font-size:70%" class="mt-2">Phone</div>
+        <div>{{labour_provider['phone']}}</div>
+        <div style="font-size:70%" class="mt-2">Price Per Labour</div>
+        <div>{{labour_provider['price']}}</div>
+        <div class="row">
+          <div class="col-md-6 mt-2">
+            <a href="../static/files/{{labour_provider['id_proof']}}" class="btn btn-info">View Id_Proof</a>
+          </div>
+          <div class="col-md-6 mt-2">
+            <a href="../static/files/{{labour_provider['licence']}}" class="btn btn-info">View Licence</a>
+          </div>
+        </div>
+        {% if session['role'] =='farmer' %}
+        <div class="mt-2">
+          <a href="book_labour?labour_provider_id={{labour_provider['_id']}}" class="btn btn-primary w-100">Book Labour</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>

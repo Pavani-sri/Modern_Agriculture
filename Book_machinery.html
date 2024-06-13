@@ -1,0 +1,38 @@
+{% include 'fhead.html' %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="card mt-5 p-3">
+        <form action="Book_machinery1">
+          <input type="hidden" name="machinery_id" value="{{machinery_id}}">
+            {% set machinery=get_machinery_by_id(machinery_id) %}
+            <input type="hidden" name="machinery_per_hour" value="{{machinery['machinery_per_hour']}}">
+            <input type="hidden" name="machinery_per_day" value="{{machinery['machinery_per_day']}}">
+            <input type="hidden" name="driver_per_hour" value="{{machinery['driver_per_hour']}}">
+           <div>
+             <label for="from_date" class="form-control-label">From Date</label>
+             <input type="datetime-local" name="from_date" id="from_date"  required class="form-control">
+           </div>
+           <div class="mt-2">
+             <label for="to_date" class="form-control-label">To Date</label>
+             <input type="datetime-local" name="to_date" id="to_date"  required class="form-control">
+           </div>
+           <div class="mt-2">
+             <label for="is_driver_required" class="form-control-label">Is Required</label>
+             <select name="is_driver_required" id="is_driver_required" required class="form-control">
+               <option value="">Is Driver Required Driver</option>
+               <option value="yes">Yes</option>
+               <option value="no">No</option>
+             </select>
+           </div>
+          <div class="mt-2">
+            <input type="submit" value="Send Request" class="btn btn-info w-100">
+          </div>
+         </form>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+
+  </div>
+</div>

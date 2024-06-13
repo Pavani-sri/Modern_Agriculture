@@ -1,0 +1,32 @@
+{% include 'fhead.html' %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-3 mt-5">
+      <div class="card mt-5  p-3">
+        <form action="confirm_request" method="post" >
+          <input type="hidden" name="labour_provider_id" value="{{labour_provider_id}}">
+          <input type="hidden" name="male_count" value="{{male_count}}">
+          <input type="hidden" name="female_count" value="{{female_count}}">
+          <input type="hidden" name="from_date" value="{{from_date}}">
+          <input type="hidden" name="to_date" value="{{to_date}}">
+          <input type="hidden" name="days" value="{{days}}">
+          <input type="hidden" name="price" value="{{price}}">
+
+          <div style="font-size:70%" class="mt-2">From Date</div>
+          <div>{{from_date.strftime("%x")}}</div>
+          <div style="font-size:70%" class="mt-2">To Date</div>
+          <div>{{to_date.strftime("%x")}}</div>
+          <div style="font-size:70%" class="mt-2">Number Of days</div>
+          <div>{{days}}</div>
+          <div style="font-size:70%" class="mt-2">Total Price for {{male_count}} males and {{female_count}} Females </div>
+          <div>${{price}}</div>
+          <div class="mt-2">
+            <input type="submit" value="Conform Booking" class="btn btn-primary w-100">
+          </div>
+        </form>
+    </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>

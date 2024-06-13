@@ -1,0 +1,37 @@
+{% include 'mhead.html' %}
+<style>
+body {
+  background-image: url("https://img.jagranjosh.com/imported/images/E/GK/modern-agriculture-impact-on-environment-gk.jpg");
+  background-size: cover;
+  height:200px;
+}
+</style>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mt-5"></div>
+    <div class="col-md-4 mt-5">
+      <div class="card mt-5 p-3">
+        <div class="text-center h4">Machinery Provider Login</div>
+        <form action="machinery_login1" method="post">
+          <div>
+            <label for="email" class="form-label">Email</label>
+            <input type="email" name="email" id="email" class="form-control" required placeholder="Enter Email">
+          </div>
+          <div class="mt-2">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" id="password" class="form-control" required placeholder="Enter Password">
+          </div>
+          <div class="mt-3">
+            <input type="submit" value="Login" class="btn btn w-100" style="background-color:#00b33c">
+          </div>
+          <div class="text-center">Or</div>
+          <div>
+            <a href="/machinery_reg"? class="btn btn- w-100" style="background-color:#00b33c">Register</a>
+          </div>
+        </form>
+     </div>
+    </div>
+    <div class="col-md-4"></div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
